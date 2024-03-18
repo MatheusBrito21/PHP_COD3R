@@ -1,0 +1,138 @@
+*{
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box; /*o conteudo, borda e padding sao considerados na definicao de um tamanho 100px 100px*/
+}
+
+body{
+    height: 100vh;
+    margin: 0px;
+    display: grid;/*definir linhas e colunas*/
+    grid-template-rows: 120px 1fr 60px;
+    grid-template-columns: 1fr;
+    grid-template-areas:/*define a posição/ordem das tags*/
+     "header"
+     "main"
+     "footer";
+}
+
+.header{
+    grid-area: header;
+    background-color: #1867c0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    z-index: 1;
+    box-shadow: 0px 5px 18px 0px rgba(0,0,0,0.75);
+}
+
+.header >h1{
+    margin: 0px;
+    font-weight: 300;
+    font-size: 2.8rem;
+}
+.header >h2{
+    margin: 0px;
+    font-weight: 200;
+    font-size: 1.8rem;
+}
+
+.main{
+    grid-area: main;
+    height: calc(100vh - 180px);
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.2);
+}
+
+.content{
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.footer{
+    grid-area: footer;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+}
+
+.modulos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.modulo{
+    flex-basis: 32%;/*largura do elemento*/
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.modulo>h3{
+    margin: 0px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: #1867c0;
+}
+
+.modulo >ul{
+    margin: 0px;
+    padding: 10px;
+    list-style: none;
+}
+
+.modulo > ul > li{
+    padding: 7px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.modulo > ul > li > a{
+    display: flex;
+    text-decoration: none;
+    color: #222;
+}
+.modulo > ul > li:hover{
+    background-color: #EEE;
+}
+
+.modulo.verde{ border: solid 2px #4caf50;}
+.modulo.verde > h3{ background-color: #4caf50;}
+
+.modulo.vermelho{ border: solid 2px #e41c0d;}
+.modulo.vermelho > h3{ background-color: #e41c0d;}
+
+.modulo.azul{ border: solid 2px #2196f3;}
+.modulo.azul > h3{ background-color: #2196f3;}
+
+.modulo.roxo{ border: solid 2px #7418c0;}
+.modulo.roxo > h3{ background-color: #7418c0;}
+
+.modulo.marrom{ border: solid 2px #703c0b;}
+.modulo.marrom > h3{ background-color: #703c0b;}
+
+.modulo.rosa{ border: solid 2px #ee0dd0;}
+.modulo.rosa > h3{ background-color: #ee0dd0;}
+
+/* .modulo.cor{ border: solid 2px #?;}
+.modulo.cor > h3{ background-color: #?;}
+
+.modulo.cor{ border: solid 2px #?;}
+.modulo.cor > h3{ background-color: #?;}
+
+.modulo.cor{ border: solid 2px #?;}
+.modulo.cor > h3{ background-color: #?;}
+
+.modulo.cor{ border: solid 2px #?;}
+.modulo.cor > h3{ background-color: #?;} */
