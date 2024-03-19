@@ -11,16 +11,16 @@
 </head>
 <body class="exercicio">
     <header class= "header">
-        <h1>Curso PHP - Cod3r</h1>
-        <h2>Visualização do Exercicio</h2>
+        <h1><a href="index.php">Curso PHP - Cod3r</a></h1>
+        <h2>Visualização do Exercício</h2>
     </header>
     <nav class="navegacao">
-        <a href="#" class="verde">Sem formatação</a>
+        <a href=<?="{$_GET['dir']}/{$_GET['file']}.php" ?>>Sem formatação</a>
         <a href="index.php" class="vermelho">voltar</a>
     </nav>
     <main class= "main">
         <div class="content">
-            <?php include("/teste.php")?>
+            <?php include("{$_GET['dir']}/{$_GET['file']}.php")?>
         </div>
     </main>
     <footer class="footer">

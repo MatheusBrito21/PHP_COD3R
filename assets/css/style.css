@@ -39,6 +39,12 @@ body{
     font-size: 1.8rem;
 }
 
+.header>h1>a{
+    text-decoration: none;
+    color: white;
+}
+
+
 .main{
     grid-area: main;
     height: calc(100vh - 180px);
@@ -125,14 +131,14 @@ body{
 .modulo.rosa{ border: solid 2px #ee0dd0;}
 .modulo.rosa > h3{ background-color: #ee0dd0;}
 
-/* .modulo.cor{ border: solid 2px #?;}
-.modulo.cor > h3{ background-color: #?;}
+.modulo.amarelo{ border: solid 2px #e6d70f;}
+.modulo.amarelo > h3{ background-color: #e6d70f;}
 
-.modulo.cor{ border: solid 2px #?;}
-.modulo.cor > h3{ background-color: #?;}
+.modulo.laranja{ border: solid 2px #e25f08;}
+.modulo.laranja > h3{ background-color:#e25f08;}
 
-.modulo.cor{ border: solid 2px #?;}
-.modulo.cor > h3{ background-color: #?;}
+.modulo.vinho{ border: solid 2px #4b0c17;}
+.modulo.vinho > h3{ background-color: #4b0c17;}
 
-.modulo.cor{ border: solid 2px #?;}
-.modulo.cor > h3{ background-color: #?;} */
+.modulo.preto{ border: solid 2px #000000;}
+.modulo.preto > h3{ background-color: #000000;}
