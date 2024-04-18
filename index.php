@@ -30,6 +30,11 @@
                     <h3>Tipos</h3>
                     <ul>
                         <li><a href="exercicio.php?dir=tipos&file=int">Inteiro</a></li>
+                        <li><a href="exercicio.php?dir=tipos&file=float">Float</a></li>
+                        <li><a href="exercicio.php?dir=tipos&file=aritmeticas">Op. Aritméticas</a></li>
+                        <li><a href="exercicio.php?dir=tipos&file=string">String</a></li>
+                        <li><a href="exercicio.php?dir=tipos&file=desafio_string">Desafio String</a></li>
+                        <li><a href="exercicio.php?dir=tipos&file=booleano">Booleano</a></li>
                     </ul>
                 </div>
             </nav>
