@@ -6,13 +6,10 @@ $lista_nomes= 'C:\Users\Matt\Desktop\Teste\Fotos_Ejoc_28_04\fotos_28_04.txt';
 
 $arquivoNomes = lerArquivo($lista_nomes);
 
-// $pe1 = new PessoaEjoc('Matt',"001");
-
 $listaNomes = gerarListaObj($arquivoNomes);
-
 // print_r($listaNomes);
-// foreach($listaNomes as $p){
-//     echo "$p \n";
-// }
 
-// lerArquivosPasta($fotos_28_04);
+$listaArquivos = lerArquivosPasta($pasta_fotos);
+// print_r($listaArquivos);
+
+alterarArquivoFotos($listaNomes,$listaArquivos,$pasta_fotos);

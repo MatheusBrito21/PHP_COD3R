@@ -3,12 +3,10 @@
 class PessoaEjoc{
     public $nome;
     public $cod;
-    public $equipe = null;
 
-    public function __construct($nome,$cod,$equipe = null){
-        $this->nome =$nome;
-        $this->cod =$cod;
-        $this->equipe =$equipe;
+    public function __construct($nome,$cod){
+        $this->nome = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
+        $this->cod = htmlspecialchars($cod, ENT_QUOTES, 'UTF-8');
 
     }
 

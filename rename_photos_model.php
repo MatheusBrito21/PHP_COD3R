@@ -13,7 +13,7 @@ function lerArquivo($file)
 
     if ($handle) {
         while (($linha = fgets($handle)) !== false) {
-            $array_nomes[] = $linha;
+            $array_nomes[] = mb_convert_encoding($linha, 'UTF-8', 'auto');
         }
         fclose($handle);
     } else {
@@ -22,15 +22,28 @@ function lerArquivo($file)
     return $array_nomes;
 }
 
-function gerarListaObj($array_nomes){
+function gerarListaObj($array_nomes) {
     $lista_nomes = [];
     foreach ($array_nomes as $nome) {
+        // Assegura que a string está em UTF-8
+        $nome = mb_convert_encoding($nome, 'UTF-8', 'auto');
+        
+        // Tratar e remover caracteres estranhos ou perigosos
+        $nome = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
+
         $n = explode(' - ', $nome);
 
-        $p_nome = trim($n[0]);
-        $p_cod = trim($n[1]);
+        // Verifica se o array $n tem pelo menos dois elementos
+        if (count($n) >= 2) {
+            $p_nome = trim($n[0]);
+            $p_cod = trim($n[1]);
 
-        $lista_nomes[] = new PessoaEjoc($p_nome,$p_cod);
+            // Cria a instância do objeto com valores sanitizados
+            $lista_nomes[] = new PessoaEjoc($p_nome, $p_cod);
+        } else {
+            // Trate o caso em que a string não está no formato esperado
+            error_log("Formato inválido para o nome: $nome");
+        }
     }
     return $lista_nomes;
 }
@@ -38,23 +51,32 @@ function gerarListaObj($array_nomes){
 
 function lerArquivosPasta($pasta){
     $arquivos = scandir($pasta);
+    $array_arquivos = [];
     foreach ($arquivos as $a) {
         $ext = pathinfo($a, PATHINFO_EXTENSION);
         if ($a != '.' && $a != '..' && $a != basename(__FILE__) && $ext) {
-            echo $a . "\n";
+            $array_arquivos[] = $a;
         }
     }
+    return $array_arquivos;
 }
-foreach ($arquivos as $a) {
-    $data = pathinfo($a, PATHINFO_FILENAME);
-    $ext = pathinfo($a, PATHINFO_EXTENSION);
-    // echo $data ."\n";
 
-    foreach ($nomes_k as $key => $value) {
-        if (strstr($data, $key)) {
-            // echo $data . " = ".$key ."->".$value . "\n"; 
-            rename($pasta . "/" . $a, $pasta . "/" . $value . "." . $ext);
-            break;
+function alterarArquivoFotos($lista_nomes,$lista_fotos,$pasta_fotos){
+
+    foreach ($lista_fotos as $a) {
+        $data = pathinfo($a, PATHINFO_FILENAME);
+        $ext = pathinfo($a, PATHINFO_EXTENSION);
+        // echo $data ."\n";
+    
+        foreach ($lista_nomes as $n) {
+            if (strstr($data, $n->cod)) {
+                // echo $data . " = ".$key ."->".$value . "\n";
+                $novoNome = mb_convert_encoding($n->nome, 'UTF-8', 'auto');
+                $novoNome = htmlspecialchars($novoNome, ENT_QUOTES, 'UTF-8');
+                
+                rename($pasta_fotos . "/" . $a, $pasta_fotos . "/" . $novoNome . "." . $ext);
+                break;
+            }
         }
     }
 }
