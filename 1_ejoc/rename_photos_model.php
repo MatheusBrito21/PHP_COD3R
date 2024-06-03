@@ -31,19 +31,21 @@ function gerarListaObj($array_nomes) {
         // Tratar e remover caracteres estranhos ou perigosos
         $nome = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
 
-        $n = explode(' - ', $nome);
+        $n = explode('-', $nome);
 
         // Verifica se o array $n tem pelo menos dois elementos
-        if (count($n) >= 2) {
-            $p_nome = trim($n[0]);
-            $p_cod = trim($n[1]);
+        if (count($n) >= 3) {
+            $p_nome     = trim($n[0]);
+            $p_cod      = trim($n[1]);
+            $p_equipe   = trim($n[2]);
 
             // Cria a instância do objeto com valores sanitizados
-            $lista_nomes[] = new PessoaEjoc($p_nome, $p_cod);
-        } else {
-            // Trate o caso em que a string não está no formato esperado
-            error_log("Formato inválido para o nome: $nome");
-        }
+            $lista_nomes[] = new PessoaEjoc($p_nome, $p_cod,$p_equipe);
+        } 
+        // else {
+        //     // Trate o caso em que a string não está no formato esperado
+        //     error_log("Formato inválido para o nome: $nome");
+        // }
     }
     return $lista_nomes;
 }
@@ -71,8 +73,9 @@ function alterarArquivoFotos($lista_nomes,$lista_fotos,$pasta_fotos){
         foreach ($lista_nomes as $n) {
             if (strstr($data, $n->cod)) {
                 // echo $data . " = ".$key ."->".$value . "\n";
-                $novoNome = mb_convert_encoding($n->nome, 'UTF-8', 'auto');
-                $novoNome = htmlspecialchars($novoNome, ENT_QUOTES, 'UTF-8');
+                // $n->nome+'_'+$n->equipe
+                $novoNome = "$n->equipe - $n->nome";
+                echo $novoNome;
                 
                 rename($pasta_fotos . "/" . $a, $pasta_fotos . "/" . $novoNome . "." . $ext);
                 break;
