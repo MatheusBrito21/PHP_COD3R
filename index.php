@@ -56,6 +56,17 @@
                         <li><a href="exercicio.php?dir=controle&file=operadores_relacionais">Operadores Relacionais</a></li>
                     </ul>
                 </div>
+                <div class="modulo vinho">
+                    <h3>Array</h3>
+                    <ul>
+                        <li><a href="exercicio.php?dir=array&file=basico">Básico</a></li>
+                        <li><a href="exercicio.php?dir=array&file=mapa">Mapa</a></li>
+                        <li><a href="exercicio.php?dir=array&file=desafio_index">Desafio Index</a></li>
+                        <li><a href="exercicio.php?dir=array&file=desafio_meses">Desafio Meses</a></li>
+                        <li><a href="exercicio.php?dir=array&file=operacoes">Operações</a></li>
+                        <li><a href="exercicio.php?dir=array&file=desafio_sorteio">Desafio Sorteio</a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </main>
