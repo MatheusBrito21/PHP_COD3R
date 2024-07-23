@@ -67,6 +67,14 @@
                         <li><a href="exercicio.php?dir=array&file=desafio_sorteio">Desafio Sorteio</a></li>
                     </ul>
                 </div>
+                <div class="modulo amarelo">
+                    <h3>Laços de Repetição</h3>
+                    <ul>
+                        <li><a href="exercicio.php?dir=repeticoes&file=for">For</a></li>
+                        <li><a href="exercicio.php?dir=repeticoes&file=desafio_for">Desafio For</a></li>
+                        <li><a href="exercicio.php?dir=repeticoes&file=foreach">Foreach</a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </main>
